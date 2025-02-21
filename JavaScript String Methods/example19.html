@@ -1,0 +1,31 @@
+<!-- JavaScript String trimStart()
+ECMAScript 2019 added the String method trimStart() to JavaScript.
+
+The trimStart() method works like trim(), but removes whitespace only from the start of a string. -->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+<h2>The trimStart() Method</h2>
+
+<p id="demo"></p>
+
+<script>
+let text1 = "     Hello World!     ";
+let text2 = text1.trimStart();
+
+document.getElementById("demo").innerHTML =
+"Length text1 = " + text1.length + "<br>Length text2 = " + text2.length;
+</script>
+
+</body>
+</html>
+
+
+<!-- output -->
+<!-- JavaScript Strings
+The trimStart() Method
+Length text1 = 22
+Length text2 = 17 -->

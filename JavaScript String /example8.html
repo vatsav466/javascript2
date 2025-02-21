@@ -1,0 +1,31 @@
+<!-- JavaScript Strings as Objects
+Normally, JavaScript strings are primitive values, created from literals:
+let x = "John";
+But strings can also be defined as objects with the keyword new:
+
+let y = new String("John"); -->
+
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Strings</h1>
+
+<p id="demo"></p>
+
+<script>
+// x is a string
+let x = "John";
+
+// y is an object
+let y = new String("John");
+
+document.getElementById("demo").innerHTML =
+typeof x + "<br>" + typeof y;
+</script>
+
+</body>
+</html>

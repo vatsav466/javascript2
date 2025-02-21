@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catch the Falling Objects</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: lightblue;
+        }
+        #game-container {
+            position: relative;
+            width: 400px;
+            height: 500px;
+            margin: auto;
+            border: 2px solid black;
+            background-color: white;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+        .basket {
+            position: absolute;
+            bottom: 10px;
+            width: 70px;
+            height: 10px;
+            padding: 10px;
+            background-color: rgb(63, 183, 145);
+        }
+        .item {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: rgb(0, 0, 0);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h2>Catch the Falling Objects</h2>
+    <div id="game-container">
+        <div class="basket" id="basket"></div>
+    </div>
+    <script>
+        const gameContainer = document.getElementById("game-container");
+        const basket = document.getElementById("basket");
+        let basketX = 175;
+        let score = 0;
+        
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowLeft" && basketX > 0) {
+                basketX -= 20;
+            } else if (event.key === "ArrowRight" && basketX < 350) {
+                basketX += 20;
+            }
+            basket.style.left = basketX + "px";
+        });
+        
+        function createFallingItem() {
+            let item = document.createElement("div");
+            item.classList.add("item");
+            item.style.left = Math.random() * 380 + "px";
+            gameContainer.appendChild(item);
+            let itemY = 0;
+            let interval = setInterval(() => {
+                itemY += 5;
+                item.style.top = itemY + "px";
+                
+                if (itemY >= 470 && Math.abs(parseInt(item.style.left) - basketX) < 30) {
+                    score++;
+                    clearInterval(interval);
+                    item.remove();
+                }
+                if (itemY >= 500) {
+                    clearInterval(interval);
+                    item.remove();
+                }
+            }, 50);
+        }
+        
+        setInterval(createFallingItem, 1000);
+    </script>
+</body>
+</html>

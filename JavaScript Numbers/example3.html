@@ -1,0 +1,42 @@
+<!-- JavaScript Numbers are Always 64-bit Floating Point
+Unlike many other programming languages, JavaScript does not define different types of numbers, like integers, short, long, floating-point etc.
+
+JavaScript numbers are always stored as double precision floating point numbers, following the international IEEE 754 standard.
+
+This format stores numbers in 64 bits, where the number (the fraction) is stored in bits 0 to 51, the exponent in bits 52 to 62, and the sign in bit 63: -->
+
+
+<!-- Integer Precision
+Integers (numbers without a period or exponent notation) are accurate up to 15 digits. -->
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Numbers</h1>
+<h2>Integer Precision</h2>
+
+<p>Integers (numbers without a period or exponent notation) are accurate up to 15 digits:</p>
+
+<p id="demo"></p>
+
+<script>
+let x = 999999999999999;
+let y = 9999999999999999;
+document.getElementById("demo").innerHTML = x + "<br>" + y;
+</script>
+
+</body>
+</html>
+
+
+
+
+<!-- output  -->
+ 
+<!-- Integer Precision
+Integers (numbers without a period or exponent notation) are accurate up to 15 digits:
+
+999999999999999
+10000000000000000 -->
